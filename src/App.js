@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Producto from './components/Producto';
+import Carrito from './components/Carrito';
 
 function App() {
+
+  //crear listado de productos
+  const [Productos, setProductos] = useState([
+    {id:1, nombre:'Camisa', precio:50},
+    {id:2, nombre:'Pantalon', precio:70},
+    {id:3, nombre:'Zapatos', precio:40},
+    {id:4, nombre:'Reloj', precio:90},
+  ]);
+
+  const [carrito, agregarProducto] = useState([])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header
+          titulo="Tienda virtual"
+         />
+        {Productos.map(producto=>(
+          <Producto
+            key={producto.id} 
+            producto={producto}
+            productos={Productos}
+            carrito={carrito}
+            agregarProducto={agregarProducto}
+          />
+        ))}
+
+        <Carrito />
     </div>
   );
 }

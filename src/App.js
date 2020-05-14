@@ -31,7 +31,10 @@ function App() {
           />
         ))}
 
-        <Carrito />
+        <Carrito 
+          carrito={carrito}
+          agregarProducto={agregarProducto}
+        />
     </div>
   );
 }

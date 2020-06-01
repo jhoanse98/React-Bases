@@ -45,4 +45,4 @@ const Producto = ({producto, productos, agregarProducto, carrito}) => {
     );
 }
  
-export default Producto;
+export default Producto;-{}
